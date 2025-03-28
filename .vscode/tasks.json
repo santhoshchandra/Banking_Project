@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile COBOL",
+            "type": "shell",
+            "command": "cobc",
+            "args": ["-x", "-o", "hello", "hello.cbl"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Run COBOL",
+            "type": "shell",
+            "command": "./hello",
+            "group": "test",
+            "dependsOn": "Compile COBOL"
+        }
+    ]
+}
