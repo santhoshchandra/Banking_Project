@@ -102,3 +102,95 @@ Conclusion
 
 In this article, we demonstrated how to execute a simple COBOL program using WSL and shell scripting. We also addressed common issues related to file formats when using Windows text editors. By following these steps, you can easily develop and run COBOL programs in a Linux environment on your Windows machine.
 
+Certainly! Below is a structured article that outlines the steps to push files to a GitHub repository, including the necessary Git commands and configurations.
+
+---
+
+# How to Push Files to GitHub: A Step-by-Step Guide
+
+## Prerequisites
+
+Before you begin, ensure you have the following:
+
+1. **Git installed** on your machine.
+2. A **GitHub account**.
+3. A **repository created** on GitHub (you can create one through the GitHub website).
+
+## Step 1: Configure Git
+
+Before using Git, you need to set up your user information. This is a one-time setup.
+
+1. **Open your terminal** (or WSL if you are using Windows).
+2. **Set your username**:
+   ```bash
+   git config --global user.name "Your Name"
+   ```
+3. **Set your email**:
+   ```bash
+   git config --global user.email "your_email@example.com"
+   ```
+
+You can verify your configuration by running:
+```bash
+git config --global --list
+```
+
+## Step 2: Initialize a Git Repository
+
+1. **Navigate to your project directory**:
+   Use the `cd` command to change to the directory where your project files are located:
+   ```bash
+   cd /path/to/your/project
+   ```
+
+2. **Initialize a new Git repository**:
+   Run the following command to create a new Git repository in your project directory:
+   ```bash
+   git init
+   ```
+
+## Step 3: Add Remote Repository
+
+1. **Link your local repository to the remote GitHub repository**:
+   Replace `<USERNAME>` with your GitHub username and `<REPO_NAME>` with the name of your repository:
+   ```bash
+   git remote add origin https://github.com/<USERNAME>/<REPO_NAME>.git
+   ```
+
+## Step 4: Add Files to the Staging Area
+
+1. **Add files to the staging area**:
+   Use the following command to add all your project files to the staging area:
+   ```bash
+   git add .
+   ```
+   Alternatively, you can add specific files by replacing `.` with the file names.
+
+## Step 5: Commit Your Changes
+
+1. **Commit the changes**:
+   After adding files to the staging area, commit your changes with a descriptive message:
+   ```bash
+   git commit -m "Initial commit: Add project files"
+   ```
+
+## Step 6: Push Your Changes to GitHub
+
+1. **Push your changes to the remote repository**:
+   Use the following command to push your local commits to the GitHub repository:
+   ```bash
+   git push -u origin main
+   ```
+   If your default branch is `master`, replace `main` with `master`.
+
+   You may be prompted to enter your GitHub username and password (or Personal Access Token if you have enabled two-factor authentication).
+
+## Step 7: Verify Your Repository on GitHub
+
+1. **Check your GitHub repository**:
+   Go to your GitHub account and navigate to the repository you just pushed to. You should see all your project files uploaded.
+
+## Conclusion
+
+In this article, we covered the essential steps to push files to a GitHub repository using Git. By following these steps, you can easily manage your code and collaborate with others. If you have any questions or need further assistance, feel free to ask!
+
