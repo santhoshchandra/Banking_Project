@@ -33,6 +33,8 @@
                                WS-OUTPUT(WS-COUNT:1)
            END-PERFORM.
            DISPLAY "Reversed string: " WS-OUTPUT.
+           MOVE FUNCTION REVERSE(FUNCTION TRIM(WS-STRING)) TO WS-OUTPUT.
+           DISPLAY "String reversal using Function: " WS-OUTPUT.         
            STOP RUN.
 
            
