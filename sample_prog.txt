@@ -1,0 +1,89 @@
+identification division.
+
+
+environment division.
+
+configuration section.
+source-computer. IBM3090 with debugging mode.
+
+input-output section.
+file control.
+    select input-file assign to input
+      organisation is sequential.
+    
+    select input-fil2 assign to input2
+      organisation is indexed
+      access mode is dynamic
+      record key is emp-id
+      file status is ws-input2-status.
+
+    select input-file3 assign to input3
+      organisation is sequential.
+
+data division.
+file section.
+
+fd input-file
+   block contains 0 records
+   label records are standard
+   recording format is f.
+01 input-record    pic x(80).
+
+fd input-fil2
+   data record is input-record2.
+01 input-record2    pic x(80).
+copy iuaf021.
+
+fd input-file3
+   block contains 0 records
+   label records are standard
+   recording format is v.
+01 input-record3    pic x(80).
+
+working-storage section.
+exec sql
+  include sqlca
+end-exec.
+
+exec sql
+   include policy
+end-exec.
+
+exec sql
+   declare polcur cursor for
+   select name, id, address, number
+   from policy
+   where number > 100
+end-exec.
+
+Linkage section.
+**if any
+
+
+procedure division.
+
+exec sql
+  open polcur
+end-exec.
+
+exec sql
+   fetch polcur
+   into :
+end-exec.
+
+exec sql
+   close polcur
+end-exec.
+
+exec sql
+   insert into table
+   (columns)
+   values
+   (fields)
+end-exec.
+
+exec sql
+    update table
+    set column
+    where conditions
+end-exec.
